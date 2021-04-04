@@ -1,4 +1,5 @@
-%modelo cinemático de robot diferencial de dos ruedas
+% Cálculo de los tiempos de vuelo teóricos de balizas en un sistema de
+% posicionamiento indoor por trilateración
 %Robotica autónoma 
 %Máster sistemas y control UNED&UCM
 %Curso 2020-2021
@@ -35,9 +36,9 @@ rad1 = sqrt ((x-b1(1))^2 + (y-b1(2))^2 + (z-b1(3))^2);
 rad2 = sqrt ((x-b2(1))^2 + (y-b2(2))^2 + (z-b2(3))^2);
 rad3 = sqrt ((x-b3(1))^2 + (y-b3(2))^2 + (z-b3(3))^2);
 
- t1=rad1*2/v;
- t2=rad2*2/v;
- t3=rad3*2/v;
+t1=rad1*2/v;
+t2=rad2*2/v;
+t3=rad3*2/v;
  
  %visualization    
     hold on;
@@ -79,12 +80,12 @@ rad3 = sqrt ((x-b3(1))^2 + (y-b3(2))^2 + (z-b3(3))^2);
         plot3 (x,y,z,'*','color','black')
         plot3 ([x x],[y y],[0 z],'color','black','Linewidth',3);
         
-        function plotCircle3D(center,normal,radius,color)
-            theta=0:0.01:2*pi;
-            v=null(normal);
-            points=repmat(center',1,size(theta,2))+radius*(v(:,1)*cos(theta)+v(:,2)*sin(theta));
-            plot3(points(1,:),points(2,:),points(3,:),'color',color);
-        end
+function plotCircle3D(center,normal,radius,color)
+    theta=0:0.01:2*pi;
+    v=null(normal);
+    points=repmat(center',1,size(theta,2))+radius*(v(:,1)*cos(theta)+v(:,2)*sin(theta));
+    plot3(points(1,:),points(2,:),points(3,:),'color',color);
+end
   
      
 
