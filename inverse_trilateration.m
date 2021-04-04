@@ -1,5 +1,4 @@
-%calculo teorico de los tiempos de vuelo de balizas supersonicas dada la
-%posicion de un robot
+%modelo cinemático de robot diferencial de dos ruedas
 %Robotica autónoma 
 %Máster sistemas y control UNED&UCM
 %Curso 2020-2021
@@ -24,24 +23,18 @@ close all
 %     r3 = t3*v/2;
 
     z=0.5; %plane   = z == h;
-    x=3;
-    y=3;
-    syms r1 r2 r3
+    x=1;
+    y=1;
+
 %sphere = (x-a)^2 + (y-b)^2 + (z-c)^2 == r^2;
-    sphere1 = (x-b1(1))^2 + (y-b1(2))^2 + (z-b1(3))^2 == r1^2;
-    sphere2 = (x-b2(1))^2 + (y-b2(2))^2 + (z-b2(3))^2 == r2^2;
-    sphere3 = (x-b3(1))^2 + (y-b3(2))^2 + (z-b3(3))^2 == r3^2;
+%     sphere1 = (x-b1(1))^2 + (y-b1(2))^2 + (z-b1(3))^2 == r1^2;
+%     sphere2 = (x-b2(1))^2 + (y-b2(2))^2 + (z-b2(3))^2 == r2^2;
+%     sphere3 = (x-b3(1))^2 + (y-b3(2))^2 + (z-b3(3))^2 == r3^2;
+       
+rad1 = sqrt ((x-b1(1))^2 + (y-b1(2))^2 + (z-b1(3))^2);
+rad2 = sqrt ((x-b2(1))^2 + (y-b2(2))^2 + (z-b2(3))^2);
+rad3 = sqrt ((x-b3(1))^2 + (y-b3(2))^2 + (z-b3(3))^2);
 
-sol1=solve(sphere1) ;
-sol2=solve(sphere2);
-sol3=solve(sphere3);
-
-% rad1=abs(sol.x(1);
-%se toma el valor positvo de la rai caudrada
- rad1=double(abs(sol1(1)));
- rad2=double(abs(sol2(1)));
- rad3=double(abs(sol3(1)));
-%calculo del tiempo en base al radio
  t1=rad1*2/v;
  t2=rad2*2/v;
  t3=rad3*2/v;
